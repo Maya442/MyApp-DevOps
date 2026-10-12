@@ -23,4 +23,5 @@ jobs:
         run: python hello.py
 
       - name: Verify expected output
-        run: python -c "import subprocess; r=subprocess.run(['python','hello.py'],capture_output=True,text=True,check=True); assert r.stdout.strip() == 'Hello, World!', f'Unexpected output: {r.stdout!r}'; print('Test passed!')"
+        run: |
+          python -c "import subprocess; r=subprocess.run(['python','hello.py'],capture_output=True,text=True,check=True); assert r.stdout.strip() == 'Hello, World!', f'Unexpected output: {r.stdout!r}'; print('Test passed!')"
